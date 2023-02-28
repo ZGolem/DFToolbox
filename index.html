@@ -20,7 +20,7 @@ Hex to Be Switched:
 function checkChar() {
     valueN = document.getElementById('userNibs').value; 
     valueN = valueN.replace(/\s/g, '');
-    if(valueN % 2 == 0)
+    if(valueN.length % 2 == 0)
     	switcher() 
     else {
     	document.getElementById("result").innerHTML = "PLEASE ENTER AN EVEN NUMBER OF CHARACTERS"
