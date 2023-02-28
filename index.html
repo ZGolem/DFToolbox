@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Nibble Switcher</h2>
+
+Hex to Be Switched:      
+<input type="text" name="userNibs" id="userNibs"><br/> <br/>
+
+<input type="button" value="Submit" onClick="checkChar()"> <br/> <br/>
+
+<b> NIBBLE SWITCHED </b>  <br/>  <br/>
+<span id="result"></span> <br/> <br/><br/>
+
+<b> NIBBLE SWITCHED (NO SPACES) </b>  <br/> <br/>
+<span id="result2"></span> <br/>
+
+<script>
+
+function checkChar() {
+    valueN = document.getElementById('userNibs').value; 
+    valueN = valueN.replace(/\s/g, '');
+    if(valueN % 2 == 0)
+    	switcher() 
+    else {
+    	document.getElementById("result").innerHTML = "PLEASE ENTER AN EVEN NUMBER OF CHARACTERS"
+      	document.getElementById("result2").innerHTML = "PLEASE ENTER AN EVEN NUMBER OF CHARACTERS" }
+}
+
+function switcher() {
+	valueD = document.getElementById('userNibs').value; 
+    valueD = valueD.replace(/\s/g, '');
+    
+    const nibs = valueD.match(/.{1,2}/g)
+    
+	let text = "";
+	let text2 = "";
+    for (let i = 0; i < nibs.length; i++) {
+ 		newNibs = nibs[i].match(/.{1,1}/g)
+ 		text += newNibs[1] + newNibs[0] + " ";
+  		text2 += newNibs[1] + newNibs[0]; }
+
+    document.getElementById("result").innerHTML = text
+    document.getElementById("result2").innerHTML = text2}
+    
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
